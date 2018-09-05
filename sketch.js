@@ -1,4 +1,4 @@
-var targetSizes = [100, 150, 200, 250, 300]
+var targetSizes = [50, 100, 150, 200, 250, 300]
 var time = 0
 
 function setup() {
@@ -13,7 +13,11 @@ function draw() {
   noFill();
   stroke(255);
   strokeWeight(4);
-  for (var i = 0; i < targetSizes.length; i++){
-    ellipse(window.width/2, window.height - scale*targetSizes[i]/2, scale*targetSizes[i], scale*targetSizes[i]);
+  ellipse(window.width/2, window.height - scale*targetSizes[targetSizes.length-1]/2, scale*targetSizes[targetSizes.length-1], scale*targetSizes[targetSizes.length-1]);
+  for (var target = 0; target < targetSizes.length-1; target++){
+    if (targetSizes[target] < scale*targetSizes[targetSizes.length-1]){
+      ellipse(window.width/2, window.height - targetSizes[target]/2, targetSizes[target], targetSizes[target]);
+    }
   }
 }
+
